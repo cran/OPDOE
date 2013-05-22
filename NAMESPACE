@@ -1,0 +1,33 @@
+# Default NAMESPACE created by R
+# Remove the previous line if you edit this file
+
+export("ncp")
+export("beta")
+export("bibd")
+export("print.bibd")
+export("conf.matrix")
+export("Confint.mean.two_stage")
+export("design.reg.polynom")
+export("hadamard.matrix")
+export("is.hadamard")
+export("defining_relation.fractional_factorial.two_levels")
+export("delta.t.test")
+#export("")
+#export("")
+#export("")
+# Export all names
+exportPattern("size.")
+exportPattern("seqadd.")
+exportPattern("add_size.")
+exportPattern("triangular.")
+exportPattern(".triangular.")
+
+# Import all packages listed as Imports or Depends
+import(
+  crossdes,
+  orthopolynom,
+  conf.design,
+  mvtnorm,
+  nlme,
+  gmp
+)
