@@ -9,7 +9,6 @@
 \alias{decide.triangular.test}
 \alias{defining_relation.fractional_factorial.two_levels}
 \alias{delta.t.test}
-\alias{design.reg.polynom}
 \alias{hadamard.matrix}
 \alias{hadamard.table}
 \alias{is.hadamard}
@@ -21,7 +20,6 @@
 \alias{paley}
 \alias{paley2}
 \alias{plot.triangular.test}
-\alias{print.triangular.test}
 \alias{seqadd.confint}
 \alias{seqadd.normal}
 \alias{size.comparing.variances}
@@ -43,11 +41,6 @@
 \alias{size_n.three_way_nested.model_4_c}
 \alias{sizes.confint.welch}
 \alias{sylvester}
-\alias{triangular.test.norm}
-\alias{triangular.test.prop}
-\alias{update.triangular.test}
-\alias{update.triangular.test.norm}
-\alias{update.triangular.test.prop}
 \alias{walsh}
 \alias{bibd}
 \alias{print.bibd}

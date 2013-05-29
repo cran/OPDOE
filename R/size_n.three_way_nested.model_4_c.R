@@ -5,20 +5,23 @@
 # Factor A and C fixed, B random. Determining n
 # Testing hypothesis about factor C in B in A
 size_n.three_way_nested.model_4_c <-
-  function(alpha, beta, delta, a, b, c, cases)
+  function(alpha, beta, delta, a, b, c, cases) ## , maxrekur=20)
 {
+  ##rekur <- 0
   if(is.na(b)){
     b <- 2
     n <- size_n.three_way_nested.model_4_c(alpha, beta, delta, a, b, c, cases)
-                                        #print(b*n)
+    ##cat(paste("debug:",n*b,"\n"))
     min <- b*n
     b.min <- b
     n.min <- n
-    while(!is.na(n)){
+    while(!is.na(n)){## & rekur<maxrekur){
+      ##rekur <- rekur+1
+      ##if(rekur>=25) browser()
       b <- b+1
       n <- size_n.three_way_nested.model_4_c(alpha, beta, delta, a, b, c, cases)
       if(is.na(n) | b*n>4*10^4)break
-                                        #print(n*b)
+      ##cat(paste("debug:",n*b,"\n"))
       if(n*b<min){
         min <- n*b
         n.min <- n
@@ -52,7 +55,8 @@ size_n.three_way_nested.model_4_c <-
       {
         n <- 5    
         n.new <- 1000
-        while (abs(n -n.new)>1e-6)
+        while (abs(n - n.new)>1e-4)
+          ## on windows accuracy only allows ">1e-4", on other systems ">1e-6" works !
           {
             n <- n.new
             dfn <- a*b*(c-1)

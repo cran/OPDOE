@@ -352,7 +352,7 @@ obj$result
 
 
 
-update.triangular.test.norm <- function(object, x=NULL, y=NULL, initial=FALSE, ...){  
+update.triangular.test.norm <- function(object, x=NULL, y=NULL, initial=FALSE, plot="last", recursive=FALSE, ...){  
 
   if(!inherits(object,"triangular.test"))
     stop("object is not a triangular test object!")
@@ -552,7 +552,7 @@ plot.triangular.test <- function(x, ...){
     if(x$kind=="one-sided"){
       ## one sided, one triangle:
       polygon(c(vmin,vmin,vright,vmin),
-              c(z1,z2,zright,z1),col="grey",border="grey")
+              c(z1,z2,zright,z1),col="grey",border="black")
       ## labels, depending on relation between m0 and mu1 (mu1 /mu2)
 
       if(parorder=="ascending"){
@@ -564,11 +564,49 @@ plot.triangular.test <- function(x, ...){
       }
     } else {
       ## two sided, two triangles:
-### TODO
-      polygon(c(vmin,vmin,vright,vmin),
-              c(z1,z2,zright,z1),col="grey",border="grey")
-      polygon(c(vmin,vmin,Vright,vmin),
-              c(Z1,Z2,Zright,Z1),col="grey",border="grey")
+      ## need to calculate interection of triangle sides for unsymmetric case:
+      ##
+      ##  z1
+      ##    ' .
+      ##  Z2.... d3 ..........Zright
+      ##           .     . '   
+      ##  z2.       .d1'
+      ##      'd2.'   * .
+      ##  Z1.'       '  .'
+      ##                   ' zright
+      ##  vmin         vright  Vright
+      ##
+      ## d1: intersection Z1-Zright x z2-zright
+      ## d2: intersection Z1-Zright x z1-zright
+      ## d3: intersection Z2-Zright x z2-zright
+
+      d1x <- ((vright - vmin) * Vright * Z1 + (vmin^2  - vmin * vright) * Zright + (vmin *  Vright - vmin^2 ) * zright + (vmin * vright - vright * Vright) * z1)/((vright - vmin) * Z1 + (vmin - vright) * Zright + (Vright - vmin) * zright + (vmin - Vright) * z1)
+      d1y <- (((Vright - vmin) * zright + (vright - Vright) * z1) * Z1 + (vmin - vright) * z1 * Zright)/((vright - vmin) * Z1 + (vmin - vright) * Zright + (Vright - vmin) * zright + (vmin - Vright) * z1)
+
+      d2x <- ((vright - vmin) * Vright * Z1 + (vmin^2  - vmin * vright) * Zright + (vmin * Vright - vmin^2 ) * zright + (vmin * vright - vright * Vright) * z2)/((vright - vmin) * Z1 + (vmin - vright) * Zright + (Vright - vmin) * zright + (vmin - Vright) * z2)
+      d2y <- (((Vright - vmin) * zright + (vright - Vright) * z2) * Z1 + (vmin - vright) * z2 * Zright)/((vright - vmin) * Z1 + (vmin - vright) * Zright + (Vright - vmin) * zright + (vmin - Vright) * z2)
+
+      ## dont plot left of vmin
+      if(d2x<vmin){
+        d2x <- vmin
+        d2y <- z2
+      }
+      
+      d3x <- ((vright - vmin) * Vright * Z2 + (vmin^2  - vmin * vright) * Zright + (vmin * Vright - vmin^2 ) * zright + (vmin * vright - vright * Vright) * z1)/((vright - vmin) * Z2 + (vmin - vright) * Zright + (Vright - vmin) * zright + (vmin - Vright) * z1)
+      d3y <- (((Vright - vmin) * zright + (vright - Vright) * z1) * Z2 + (vmin - vright) * z1 * Zright)/((vright - vmin) * Z2 + (vmin - vright) * Zright + (Vright - vmin) * zright + (vmin - Vright) * z1)
+
+      ## dont plot left of vmin
+      if(d3x<vmin){
+        d3x <- vmin
+        d3y <- Z2
+      }
+      polygon(c(vmin,vmin,d2x,vright,d1x,Vright,d3x,vmin),
+              c(z1,Z1,d2y,zright,d1y,Zright,d3y,z1),
+              col="grey",
+              border="black")
+              
+
+      
       ## labels, depending on relation between m0 and mu1 (mu1 /mu2)
 
     
@@ -611,18 +649,18 @@ print.triangular.test <- function(x, ...){
 
       }
         
-    }else{ # two sample
+    } else { # two sample
       if(x$kind=="one-sided"){
         if(x$mu2>x$mu1){
           cat(paste("\nH0: mu1=mu2=",x$mu1," versus H1: mu1=",x$mu1," mu2>=",x$mu2,"\n"))
         }else{
           cat(paste("\nH0: mu1=mu2=",x$mu1," versus H1: mu1=",x$mu1," mu2<=",x$mu2,"\n"))
         }
-      }else{
+      } else {
         ## two sided
         if(x$mu2>x$mu1){
           cat(paste("\nH0: mu1=mu2=",x$mu1," versus H1: mu1=",x$mu1," and mu2>=",x$mu2," or mu2<=",x$mu0,"\n"))          
-        }else{
+        } else {
           cat(paste("\nH0: mu1=mu2=",x$mu1," versus H1: mu1=",x$mu1," and mu2>=",x$mu0," or mu2<=",x$mu2,"\n"))          
         }
       }
@@ -673,7 +711,7 @@ print.triangular.test <- function(x, ...){
     if(x$sample=="one"){
       cat(paste("current sample size for x: ",x$n,"\n"))
     } else {
-      cat(paste("current Sample size for x: ",x$n,"\n"))
+      cat(paste("current sample size for x: ",x$n,"\n"))
       cat(paste("current sample size for y: ",x$m,"\n"))
     }
 
@@ -700,7 +738,7 @@ print.triangular.test <- function(x, ...){
 
 
 
-triangular.test.prop<-function(x, y=NULL, p0=NULL, p1=NULL, p2=NULL, alpha=0.05, beta=0.1, delta=NULL){
+triangular.test.prop<-function(x, y=NULL, p0=NULL, p1=NULL, p2=NULL, alpha=0.05, beta=0.1, delta=NULL,plot=TRUE){
 
   
   if(!is.null(p0) && !is.null(p2)){
@@ -818,12 +856,14 @@ triangular.test.prop<-function(x, y=NULL, p0=NULL, p1=NULL, p2=NULL, alpha=0.05,
       }
     }
   }
-  plot(ret)
-  print(ret)
+  if(plot) {
+    plot(ret)
+    print(ret)
+  }
   ret
 }
 
-update.triangular.test.prop <- function(object, x=NULL, y=NULL, initial=FALSE, ...){
+update.triangular.test.prop <- function(object, x=NULL, y=NULL, initial=FALSE, plot="last", recursive=FALSE, ...){
   if(!inherits(object,"triangular.test"))
     stop("object is not a triangular test object!")
   if(!initial)

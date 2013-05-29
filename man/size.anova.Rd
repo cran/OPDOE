@@ -110,11 +110,8 @@ size.anova(model="a>B>c", hypothesis="c",a=6, b=2, c=4,
 size.anova(model="a>B>c", hypothesis="c",a=6, b=20, c=4, 
            alpha=0.05, beta=0.1, delta=0.5, case="maximin")
 
-# this hangs on Windows:
-if(regexpr("mingw32",version$platform)< 0){
 size.anova(model="a>B>c", hypothesis="c",a=6, b=NA, c=4, 
            alpha=0.05, beta=0.1, delta=0.5, case="maximin")
-}
 
 size.anova(model="(axb)>c", hypothesis="a",a=6, b=5, c=4, 
            alpha=0.05, beta=0.1, delta=0.5, case="maximin")
