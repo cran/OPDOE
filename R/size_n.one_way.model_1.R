@@ -15,7 +15,7 @@ size_n.one_way.model_1 <-  function(alpha, beta, delta, a, cases)
 	{
 		lambda <- 0.25*a*n*delta*delta
 	}
-	beta.calculated <- beta(alpha, dfn, dfd, lambda)
+	beta.calculated <- Beta(alpha, dfn, dfd, lambda)
 	if (is.nan(beta.calculated) || beta.calculated < beta )
 	{
    warning(paste("Given parameter will result in too high power.",

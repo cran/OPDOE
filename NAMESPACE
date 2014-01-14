@@ -2,7 +2,7 @@
 # Remove the previous line if you edit this file
 
 export("ncp")
-export("beta")
+export("Beta")
 export("bibd")
 export("print.bibd")
 export("print.design.regression")
@@ -24,12 +24,10 @@ exportPattern("add_size.")
 exportPattern("triangular.")
 exportPattern(".triangular.")
 
-# Import all packages listed as Imports or Depends
-import(
-  crossdes,
-  orthopolynom,
-  conf.design,
-  mvtnorm,
-  nlme,
-  gmp
-)
+# Imports, selectively:
+importFrom(gmp, as.bigz, factorize, isprime, "modulus<-")
+importFrom(mvtnorm, qmvnorm, qmvt)
+importFrom(orthopolynom, legendre.polynomials)
+importFrom(polynom, polynomial)
+importFrom(nlme, pdIdent)
+importFrom(crossdes, MOLS)

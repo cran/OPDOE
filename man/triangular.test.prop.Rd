@@ -40,15 +40,16 @@ initial data for group \code{x}, at least 1 entry, values restricted to
 logical, indicates whether a initial plot should be generated.
 }
 \item{delta}{
-    The minimum difference to be detected, alternative way to specify \code{p2=p1+delta}, see above, use either this or \code{p2}.
+  The minimum difference to be detected, alternative way to
+  specify \code{p2=p1+delta}, see above, use either this or \code{p2}.
   }
 }
 \details{
 
   One-sample:
 
-  This function performs a one- or two-sided sequential Test for equal
-  proportions \eqn{p=\code{p1}} \eqn{p=\code{p1}} versus
+  This function performs a one- or two-sided sequential Test for
+  \eqn{p=\code{p1}}  versus
 
   \eqn{p>\code{p2}}, if \code{p2} > \code{p1} (one-sided)
   

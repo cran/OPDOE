@@ -1,15 +1,15 @@
 Package: OPDOE
-Version: 1.0-7
+Version: 1.0-8
 Title: OPtimal Design Of Experiments
-Author: Petr Simecek <simecek@gmail.com>, Juergen Pilz
-        <juergen.pilz@uni-klu.ac.at> Mingui Wang
-        <mail.mwang@gmail.com>, Albrecht Gebhardt
-        <albrecht.gebhardt@uni-klu.ac.at>.
+Author: Petr Simecek <simecek@gmail.com>,
+        Juergen Pilz <juergen.pilz@uni-klu.ac.at>
+        Mingui Wang <mail.mwang@gmail.com>,
+        Albrecht Gebhardt <albrecht.gebhardt@uni-klu.ac.at>.
 Maintainer: Albrecht Gebhardt <albrecht.gebhardt@uni-klu.ac.at>
 Description: Experimental Design
-Depends: orthopolynom, conf.design, mvtnorm, nlme, gmp, crossdes
+Imports: mvtnorm, gmp, orthopolynom, nlme, crossdes, polynom
 License: GPL (>= 2)
-Packaged: 2013-05-29 21:37:22 UTC; alge
+Packaged: 2014-01-14 17:19:20 UTC; alge
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2013-05-30 07:26:15
+Date/Publication: 2014-01-14 19:38:37

@@ -19,7 +19,7 @@ size_bc.three_way_mixed_cxbina.model_6_a_case2 <-  function(alpha, beta, delta, 
 	{
 		lambda <- 0.25*a*b*c*n*delta*delta
 	}
-	beta.calculated <- beta(alpha, dfn, dfd, lambda)
+	beta.calculated <- Beta(alpha, dfn, dfd, lambda)
 	if (is.nan(beta.calculated) || beta.calculated < beta )
 	{
    warning(paste("Given parameter will result in too high power.",

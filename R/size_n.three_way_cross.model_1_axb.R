@@ -18,7 +18,7 @@ size_n.three_way_cross.model_1_axb <-  function(alpha, beta, delta, a, b, c, cas
 	{
 		lambda <- 0.25*a*b*c*n*delta*delta
 	}
-	beta.calculated <- beta(alpha, dfn, dfd, lambda)
+	beta.calculated <- Beta(alpha, dfn, dfd, lambda)
 	if (is.nan(beta.calculated) || beta.calculated < beta )
 	{
    warning(paste("Given parameter will result in too high power.",

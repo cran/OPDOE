@@ -2,7 +2,7 @@
 \title{(still) undocumented functions}
 
 \alias{add_size.mean.two_stage}
-\alias{beta}
+\alias{Beta}
 \alias{conf.matrix}
 \alias{Confint.mean.two_stage}
 \alias{conversion.low_high.two_levels}

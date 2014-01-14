@@ -3,7 +3,6 @@ design.reg.polynom <- function(...){
 }
 
 design.regression.polynom <- function(a, b, k, n){
-  require(orthopolynom)
   p <- n%/%(k+1)
   rem <- n%%(k+1)
     loc <- (a+b)/2+(b-a)/2*

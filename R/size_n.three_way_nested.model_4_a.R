@@ -38,7 +38,7 @@ size_n.three_way_nested.model_4_a <-  function(alpha, beta, delta, a, b, c, case
 	{
 		lambda <- 0.25*a*b*c*n*delta*delta
 	}
-	beta.calculated <- beta(alpha, dfn, dfd, lambda)
+	beta.calculated <- Beta(alpha, dfn, dfd, lambda)
 	if (is.nan(beta.calculated) || beta.calculated < beta )
 	{
    warning(paste("Given parameter will result in too high power.",
