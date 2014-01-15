@@ -24,8 +24,12 @@ exportPattern("add_size.")
 exportPattern("triangular.")
 exportPattern(".triangular.")
 
-# Imports, selectively:
-importFrom(gmp, as.bigz, factorize, isprime, "modulus<-")
+# Imports:
+# this is not enough:
+# importFrom(gmp, as.bigz, factorize, isprime, "modulus<-")
+# so fall back to:
+import(gmp)
+# now selectively:
 importFrom(mvtnorm, qmvnorm, qmvt)
 importFrom(orthopolynom, legendre.polynomials)
 importFrom(polynom, polynomial)
