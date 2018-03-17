@@ -35,3 +35,17 @@ importFrom(orthopolynom, legendre.polynomials)
 importFrom(polynom, polynomial)
 importFrom(nlme, pdIdent)
 importFrom(crossdes, MOLS)
+importFrom("graphics", "lines", "plot", "points", "polygon", "text")
+importFrom("stats", "deriv", "pf", "pnorm", "power.prop.test",
+           "power.t.test", "qchisq", "qf", "qnorm", "qt", "sd",
+           "uniroot", "update", "var")
+importFrom("utils", "combn", "data")
+
+## S3 methods
+S3method("plot","triangular.test")
+S3method("print","bibd")
+S3method("print","design.regression")
+S3method("print","triangular.test")
+S3method("update","triangular.test")
+S3method("update","triangular.test.norm")
+S3method("update","triangular.test.prop")

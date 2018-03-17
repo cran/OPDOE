@@ -1,5 +1,5 @@
-eeb26e101708c44d5146e6cefdde81b9 *DESCRIPTION
-4932d44c3da5b7e32c70d0765c7c1094 *NAMESPACE
+137b3961667cfddb950c88c325910efa *DESCRIPTION
+9613985c82d22f49885f908febd133d4 *NAMESPACE
 d367e0d2d4d751d41e51267d8bb8fe04 *R/add_size.mean.two_stage.R
 8f5b84d7f20b31a151c5c447b6c182b7 *R/anova.R
 69dcd98e4e893b3e6c87f8b697860c58 *R/beta.R
@@ -91,10 +91,10 @@ c1a7a19f3810abf9a5033907bb8195eb *R/size_n.three_way_nested.model_3_b.R
 65874e48b5638f4646aa0a44a15bda55 *R/size_n.two_way_nested.model_1_test_factor_b.R
 cf97225c52719b010911c0c9153cb7dd *R/sizes.confint.welch.R
 cf3563b14db03fb4ed81a357608d0c39 *R/triangular.test.R
-e9c6b0fc8ed1167e217f41c660f2c853 *data/cattle.rda
-7ec3d164a0acc57b45fcdc3deda8946d *data/hadamard.table.rda
-f97167c02b5e9ca75052af41f3c5e45b *data/heights.rda
-cca43bab21465e12044935d239e88d8f *data/hemp.rda
+e9ed69fe3261b9785aaccbf7f29454ce *data/cattle.rda
+4bf8c3e7c9631babc3204d64254b747d *data/hadamard.table.rda
+11c8614dad09a2c933cfeff8256c6fb2 *data/heights.rda
+b3550561bbeb5ad82980c8716cad14fd *data/hemp.rda
 e0abb155c34dbb6b75aaa2f9882f24cb *man/OPDOE-undocumented.Rd
 58386e23eb2061bf6c0ba1999252a7df *man/cattle.Rd
 04529d17c6cf8de3d36b6357173cb70c *man/design.reg.polynom.Rd
